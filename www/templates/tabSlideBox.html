@@ -1,24 +1,20 @@
-<tab-slide-box tab="2">
+<tab-slide-box>
   <div class="tsb-icons">
     <div class="tsb-ic-wrp">
       <a href="javascript:;" class="ion-home"></a>
       <a href="javascript:;" class="ion-email"></a>
-      <a href="javascript:;" class="ion-model-s"></a>
       <a href="javascript:;" class="ion-person"></a>
     </div>
   </div>
   <ion-slide-box show-paper="false" on-slide-changed="slideHasChanged($index)">
     <ion-slide>
-      <h1>Home</h1>
+      <ion-nav-view name="tab-dash"></ion-nav-view>
     </ion-slide>
     <ion-slide>
-      <h1>Mail</h1>
+      <ion-nav-view name="tab-chats"></ion-nav-view>
     </ion-slide>
     <ion-slide>
-      <h1>Car</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Profile</h1>
+      <ion-nav-view name="tab-account"></ion-nav-view>
     </ion-slide>
   </ion-slide-box>
 </tab-slide-box>

@@ -14,6 +14,6 @@ global angular, window, cordova, StatusBar
     return
 
   angular
-  .module("starter", ["ionic"])
+  .module("starter", ["ionic", "tabSlideBox"])
   .run(run)
 )()

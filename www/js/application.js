@@ -16,7 +16,7 @@ global angular, window, cordova, StatusBar
       }
     });
   };
-  return angular.module("starter", ["ionic"]).run(run);
+  return angular.module("starter", ["ionic", "tabSlideBox"]).run(run);
 })();
 
 (function() {
@@ -53,21 +53,21 @@ global angular, window, cordova, StatusBar
     $stateProvider.state("tab", {
       url: "/tab",
       abstract: true,
-      templateUrl: "templates/tabs.html"
+      templateUrl: "templates/tabSlideBox.html"
     }).state("tab.dash", {
       url: "/dash",
       views: {
         "tab-dash": {
           templateUrl: "templates/tab-dash.html",
           controller: "DashCtrl"
-        }
-      }
-    }).state("tab.chats", {
-      url: "/chats",
-      views: {
+        },
         "tab-chats": {
           templateUrl: "templates/tab-chats.html",
           controller: "ChatsCtrl"
+        },
+        "tab-account": {
+          templateUrl: "templates/tab-account.html",
+          controller: "AccountCtrl"
         }
       }
     }).state("tab.chat-detail", {
@@ -76,14 +76,6 @@ global angular, window, cordova, StatusBar
         "tab-chats": {
           templateUrl: "templates/chat-detail.html",
           controller: "ChatDetailCtrl"
-        }
-      }
-    }).state("tab.account", {
-      url: "/account",
-      views: {
-        "tab-account": {
-          templateUrl: "templates/tab-account.html",
-          controller: "AccountCtrl"
         }
       }
     });
