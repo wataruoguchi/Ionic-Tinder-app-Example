@@ -15,7 +15,7 @@ require("coffee-script/register");
 require("./gulpfile.coffee");
 
 var paths = {
-  sass: ["./scss/**/*.scss"],
+  sass: ["./scss/*.scss"],
   coffee: ["./www/**/*.coffee"]
 };
 
@@ -23,17 +23,30 @@ gulp.task("default", ["sass"]);
 
 gulp.task("sass", function(done) {
   "use strict";
-  gulp.src("./scss/ionic.app.scss")
-    .pipe(sass({
-      errLogToConsole: true
-    }))
-    .pipe(gulp.dest("./www/css/"))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
-    .pipe(rename({ extname: ".min.css" }))
-    .pipe(gulp.dest("./www/css/"))
-    .on("end", done);
+  // gulp.src("./scss/ionic.app.scss")
+  //   .pipe(sass({
+  //     errLogToConsole: true
+  //   }))
+  //   .pipe(gulp.dest("./www/css/"))
+  //   .pipe(minifyCss({
+  //     keepSpecialComments: 0
+  //   }))
+  //   .pipe(rename({ extname: ".min.css" }))
+  //   .pipe(gulp.dest("./www/css/"))
+  //   .on("end", done);
+
+  //Compiling custom sass
+  gulp.src(paths.sass)
+  .pipe(sass({
+    errLogToConsole: true
+  }))
+  .pipe(gulp.dest("./www/css/"))
+  .pipe(minifyCss({
+    keepSpecialComments: 0
+  }))
+  .pipe(rename({extname: ".min.css"}))
+  .pipe(gulp.dest("./www/css/"))
+  .on("end", done);
 });
 
 gulp.task("coffee", function(done) {

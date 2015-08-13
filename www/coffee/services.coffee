@@ -7,28 +7,58 @@
         name: "Ben Sparrow",
         lastText: "You on your way?"
         face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
-      },
+      }
       {
         id: 1
-        name: "Ben Sparrow",
+        name: "Ben Sparrow1",
         lastText: "You on your way?"
         face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
-      },
+      }
       {
         id: 2
-        name: "Ben Sparrow",
+        name: "Ben Sparrow2",
         lastText: "You on your way?"
         face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
-      },
+      }
       {
         id: 3
-        name: "Ben Sparrow",
+        name: "Ben Sparrow3",
         lastText: "You on your way?"
         face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
-      },
+      }
       {
         id: 4
-        name: "Ben Sparrow",
+        name: "Ben Sparrow4",
+        lastText: "You on your way?"
+        face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
+      }
+      {
+        id: 5
+        name: "Ben Sparrow5",
+        lastText: "You on your way?"
+        face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
+      }
+      {
+        id: 6
+        name: "Ben Sparrow6",
+        lastText: "You on your way?"
+        face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
+      }
+      {
+        id: 7
+        name: "Ben Sparrow7",
+        lastText: "You on your way?"
+        face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
+      }
+      {
+        id: 8
+        name: "Ben Sparrow8",
+        lastText: "You on your way?"
+        face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
+      }
+      {
+        id: 9
+        name: "Ben Sparrow9",
         lastText: "You on your way?"
         face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
       }
@@ -45,7 +75,18 @@
           return chats[i]
       null
 
+  Cards = ->
+    cards = [
+      {img: "img/ionic.png"}
+      {img: "img/ionic.png"}
+      {img: "img/ionic.png"}
+    ]
+
+    all: ->
+      cards
+
   angular
   .module("starter")
   .factory("Chats", Chats)
+  .factory("Cards", Cards)
 )()

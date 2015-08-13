@@ -1,0 +1,19 @@
+<ion-view view-title="Tinder">
+  <ion-content ng-controller="TinderCtrl as tinderctrl" scroll="false">
+    <td-cards>
+      <td-card ng-repeat="card in tinderctrl.cards"
+      on-destroy="tinderctrl.cardDestroyed($index)"
+      on-swipe-left="tinderctrl.cardSwipedLeft($index)"
+      on-swipe-right="tinderctrl.cardSwipedRight($index)"
+      on-touch="tinderctrl.onTouch()"
+      on-release="tinderctrl.onRelease()"
+      class="card={{$index}}">
+        <div class="image">
+          <div class="no-text">NOPE</div>
+          <img ng-src="{{card.img}}" alt="">
+          <div class="yes-text">LIKE</div>
+        </div>
+      </td-card>
+    </td-cards>
+  </ion-content>
+</ion-view>

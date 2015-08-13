@@ -14,6 +14,10 @@
             templateUrl: "templates/tab-dash.html"
             controller: "DashCtrl"
           }
+          "tab-tinder": {
+            templateUrl: "templates/tab-tinder.html"
+            controller: "TinderCtrl"
+          }
           "tab-chats": {
             templateUrl: "templates/tab-chats.html"
             controller: "ChatsCtrl"
@@ -21,15 +25,6 @@
           "tab-account": {
             templateUrl: "templates/tab-account.html"
             controller: "AccountCtrl"
-          }
-        }
-      }
-      .state "tab.chat-detail", {
-        url: "/chats/:chatId"
-        views: {
-          "tab-chats": {
-            templateUrl: "templates/chat-detail.html"
-            controller: "ChatDetailCtrl"
           }
         }
       }

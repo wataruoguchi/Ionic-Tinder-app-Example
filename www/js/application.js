@@ -16,12 +16,12 @@ global angular, window, cordova, StatusBar
       }
     });
   };
-  return angular.module("starter", ["ionic", "tabSlideBox"]).run(run);
+  return angular.module("starter", ["ionic", "tabSlideBox", "ionic.contrib.ui.tinderCards"]).run(run);
 })();
 
 (function() {
   "use strict";
-  var AccountCtrl, ChatDetailCtrl, ChatsCtrl, DashCtrl;
+  var AccountCtrl, ChatDetailCtrl, ChatsCtrl, DashCtrl, TinderCtrl;
   DashCtrl = function() {};
   ChatsCtrl = function(Chats) {
     var vm;
@@ -43,7 +43,56 @@ global angular, window, cordova, StatusBar
       enableFriends: true
     };
   };
-  return angular.module("starter").controller("DashCtrl", DashCtrl).controller("ChatsCtrl", ChatsCtrl).controller("ChatDetailCtrl", ChatDetailCtrl).controller("AccountCtrl", AccountCtrl);
+  TinderCtrl = function(Cards, TDCardDelegate, $ionicSlideBoxDelegate) {
+    var cardIsDisliked, cardIsLiked, disableSwipe, enableSwipe, vm;
+    disableSwipe = function() {
+      $ionicSlideBoxDelegate.enableSlide(false);
+    };
+    enableSwipe = function() {
+      $ionicSlideBoxDelegate.enableSlide(true);
+    };
+    cardIsLiked = function(index) {
+      console.log("LIKE!" + index);
+    };
+    cardIsDisliked = function(index) {
+      console.log("NOPE" + index);
+    };
+    vm = this;
+    vm.cards = Cards.all();
+    vm.onTouch = function() {
+      disableSwipe();
+    };
+    vm.onRelease = function() {
+      enableSwipe();
+    };
+    vm.cardDestroyed = function(index) {
+      vm.cards.splice(index, 1);
+    };
+    vm.cardSwiped = function(index) {};
+    vm.cardSwipedLeft = function(index) {
+      cardIsDisliked(index);
+    };
+    vm.cardSwipedRight = function(index) {
+      cardIsLiked(index);
+    };
+  };
+  return angular.module("starter").controller("DashCtrl", DashCtrl).controller("TinderCtrl", TinderCtrl).controller("ChatsCtrl", ChatsCtrl).controller("ChatDetailCtrl", ChatDetailCtrl).controller("AccountCtrl", AccountCtrl);
+})();
+
+(function() {
+  "use strict";
+  var noScroll;
+  noScroll = function() {
+    return {
+      restrict: "E",
+      link: function($scope, $element, $attr) {
+        $element.on("touchmove", function(e) {
+          e.preventDefault();
+        });
+      }
+    };
+  };
+  return angular.module("starter").directive("tdCard", noScroll);
 })();
 
 (function() {
@@ -61,6 +110,10 @@ global angular, window, cordova, StatusBar
           templateUrl: "templates/tab-dash.html",
           controller: "DashCtrl"
         },
+        "tab-tinder": {
+          templateUrl: "templates/tab-tinder.html",
+          controller: "TinderCtrl"
+        },
         "tab-chats": {
           templateUrl: "templates/tab-chats.html",
           controller: "ChatsCtrl"
@@ -68,14 +121,6 @@ global angular, window, cordova, StatusBar
         "tab-account": {
           templateUrl: "templates/tab-account.html",
           controller: "AccountCtrl"
-        }
-      }
-    }).state("tab.chat-detail", {
-      url: "/chats/:chatId",
-      views: {
-        "tab-chats": {
-          templateUrl: "templates/chat-detail.html",
-          controller: "ChatDetailCtrl"
         }
       }
     });
@@ -86,7 +131,7 @@ global angular, window, cordova, StatusBar
 
 (function() {
   "use strict";
-  var Chats;
+  var Cards, Chats;
   Chats = function() {
     var chats;
     chats = [
@@ -97,22 +142,47 @@ global angular, window, cordova, StatusBar
         face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
       }, {
         id: 1,
-        name: "Ben Sparrow",
+        name: "Ben Sparrow1",
         lastText: "You on your way?",
         face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
       }, {
         id: 2,
-        name: "Ben Sparrow",
+        name: "Ben Sparrow2",
         lastText: "You on your way?",
         face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
       }, {
         id: 3,
-        name: "Ben Sparrow",
+        name: "Ben Sparrow3",
         lastText: "You on your way?",
         face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
       }, {
         id: 4,
-        name: "Ben Sparrow",
+        name: "Ben Sparrow4",
+        lastText: "You on your way?",
+        face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
+      }, {
+        id: 5,
+        name: "Ben Sparrow5",
+        lastText: "You on your way?",
+        face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
+      }, {
+        id: 6,
+        name: "Ben Sparrow6",
+        lastText: "You on your way?",
+        face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
+      }, {
+        id: 7,
+        name: "Ben Sparrow7",
+        lastText: "You on your way?",
+        face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
+      }, {
+        id: 8,
+        name: "Ben Sparrow8",
+        lastText: "You on your way?",
+        face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
+      }, {
+        id: 9,
+        name: "Ben Sparrow9",
         lastText: "You on your way?",
         face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
       }
@@ -135,5 +205,22 @@ global angular, window, cordova, StatusBar
       }
     };
   };
-  return angular.module("starter").factory("Chats", Chats);
+  Cards = function() {
+    var cards;
+    cards = [
+      {
+        img: "img/ionic.png"
+      }, {
+        img: "img/ionic.png"
+      }, {
+        img: "img/ionic.png"
+      }
+    ];
+    return {
+      all: function() {
+        return cards;
+      }
+    };
+  };
+  return angular.module("starter").factory("Chats", Chats).factory("Cards", Cards);
 })();

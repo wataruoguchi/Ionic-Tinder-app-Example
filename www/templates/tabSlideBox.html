@@ -1,7 +1,8 @@
-<tab-slide-box>
+<tab-slide-box tab="0">
   <div class="tsb-icons">
     <div class="tsb-ic-wrp">
       <a href="javascript:;" class="ion-home"></a>
+      <a href="javascript:;" class="ion-email"></a>
       <a href="javascript:;" class="ion-email"></a>
       <a href="javascript:;" class="ion-person"></a>
     </div>
@@ -11,7 +12,12 @@
       <ion-nav-view name="tab-dash"></ion-nav-view>
     </ion-slide>
     <ion-slide>
-      <ion-nav-view name="tab-chats"></ion-nav-view>
+      <ion-nav-view name="tab-tinder"></ion-nav-view>
+    </ion-slide>
+    <ion-slide>
+      <ion-scrill delegate-handle="slide1Scroll">
+        <ion-nav-view name="tab-chats"></ion-nav-view>
+      </ion-scrill>
     </ion-slide>
     <ion-slide>
       <ion-nav-view name="tab-account"></ion-nav-view>
