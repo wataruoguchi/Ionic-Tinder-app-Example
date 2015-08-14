@@ -1,19 +1,44 @@
 <ion-view view-title="Tinder">
   <ion-content ng-controller="TinderCtrl as tinderctrl" scroll="false">
     <td-cards>
-      <td-card ng-repeat="card in tinderctrl.cards"
-      on-destroy="tinderctrl.cardDestroyed($index)"
-      on-swipe-left="tinderctrl.cardSwipedLeft($index)"
-      on-swipe-right="tinderctrl.cardSwipedRight($index)"
-      on-touch="tinderctrl.onTouch()"
-      on-release="tinderctrl.onRelease()"
-      class="card={{$index}}">
-        <div class="image">
-          <div class="no-text">NOPE</div>
-          <img ng-src="{{card.img}}" alt="">
-          <div class="yes-text">LIKE</div>
+      <div class="card-item" ng-repeat="card in tinderctrl.cards">
+        <td-card
+        on-destroy="tinderctrl.cardDestroyed($index)"
+        on-swipe-left="tinderctrl.cardSwipedLeft($index)"
+        on-swipe-right="tinderctrl.cardSwipedRight($index)"
+        on-touch="tinderctrl.onTouch()"
+        on-release="tinderctrl.onRelease()"
+        class="card={{$index}}">
+          <div class="list card">
+            <div class="item item-body">
+              <div class="image">
+                <div class="no-text">NOPE</div>
+                <img ng-src="{{card.img}}" alt="" ng-click="tinderctrl.openCardModal(card)">
+                <div class="yes-text">VOTE</div>
+              </div>
+              <div class="card-footer">
+                <p class="title">{{card.title}}</p>
+                <div class="row">
+                  <div class="col">
+                    <p class="subdued">1 vote</p>
+                  </div>
+                  <div class="col">
+                    <p class="subdued">2 comments</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td-card>
+        <div class="row bottom-row">
+          <div class="col">
+            <button class="button button-large btn-no" on-tap="tinderctrl.cardTapNo()"><i class="icon ion-close-round"></i></button>
+          </div>
+          <div class="col">
+            <button class="button button-large btn-yes" on-tap="tinderctrl.cardTapYes()"><i class="icon ion-thumbsup"></i></button>
+          </div>
         </div>
-      </td-card>
+      </div>
     </td-cards>
   </ion-content>
 </ion-view>

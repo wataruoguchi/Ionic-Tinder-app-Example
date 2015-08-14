@@ -4,26 +4,30 @@ td-cards {
 
 td-card {
   position: absolute;
-  left: 50%;
-  margin-top: 80px;
-  margin-bottom: 40px;
-  margin-left: -150px;
-  width: 300px;
-  height: 300px;
+  left: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 5%;
+  width: 90%;
+  height: 22rem;
 
-  background-color: #fff;
-  border: 1px solid #999;
-  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 6px;
-}
+  .td-card, .card, .item {
+    position: relative;
+    height: 100%;
+  }
 
-td-card .image {
-  position: relative;
-}
+  .image {
+    width: 100%;
+  }
 
-td-card img {
-  max-width: 100%;
-  border-radius: 6px;
+  img {
+    max-width: 100%;
+  }
+
+  .card-footer {
+    position: relative;
+    bottom: 0;
+  }
 }
 
 .yes-text {
@@ -47,4 +51,9 @@ td-card img {
   -webkit-transition: 0.2s opacity linear;
   transition: 0.2s opacity linear;
   opacity: 0;
+}
+
+.bottom-row {
+  position: absolute;
+  top: 26rem;
 }

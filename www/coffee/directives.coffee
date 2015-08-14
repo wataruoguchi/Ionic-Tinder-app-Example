@@ -2,7 +2,7 @@
   "use strict"
 
   noScroll = ->
-    restrict: "E"
+    restrict: "A"
     link: ($scope, $element, $attr) ->
       $element.on("touchmove", (e) ->
         e.preventDefault()

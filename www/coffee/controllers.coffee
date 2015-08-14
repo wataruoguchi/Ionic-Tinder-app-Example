@@ -24,7 +24,7 @@
     }
     return
 
-  TinderCtrl = (Cards, TDCardDelegate, $ionicSlideBoxDelegate) ->
+  TinderCtrl = (Cards, TDCardDelegate, $ionicSlideBoxDelegate, Modals) ->
     disableSwipe = ->
       $ionicSlideBoxDelegate.enableSlide(false)
       return
@@ -56,10 +56,6 @@
       vm.cards.splice index, 1
       return
 
-    vm.cardSwiped = (index) ->
-      #under construction
-      return
-
     vm.cardSwipedLeft = (index) ->
       cardIsDisliked(index)
       return
@@ -68,12 +64,48 @@
       cardIsLiked(index)
       return
 
+    vm.cardTapNo = ->
+      cardIsDisliked(0)
+      vm.cardDestroyed(0)
+      return
+
+    vm.cardTapYes = ->
+      cardIsLiked(0)
+      vm.cardDestroyed(0)
+      return
+
+    vm.openCardModal = (card) ->
+      if card
+        Modals.showCardItem(card)
+        .then(
+          (card) ->
+            vm.card = card
+        )
+      return
+
+    vm.closeCardModal = (result) ->
+      if result
+        vm.closeModal(result)
+      return
+
+    return
+
+  TinderModalCtrl = (parameters, Modals) ->
+    vm = @
+    vm.card = parameters
+
+    vm.closeCardModal = (result) ->
+      if result
+        vm.closeModal(result)
+      return
+
     return
 
   angular
     .module("starter")
     .controller("DashCtrl", DashCtrl)
     .controller("TinderCtrl", TinderCtrl)
+    .controller("TinderModalCtrl", TinderModalCtrl)
     .controller("ChatsCtrl", ChatsCtrl)
     .controller("ChatDetailCtrl", ChatDetailCtrl)
     .controller("AccountCtrl", AccountCtrl)

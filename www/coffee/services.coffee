@@ -77,16 +77,26 @@
 
   Cards = ->
     cards = [
-      {img: "img/ionic.png"}
-      {img: "img/ionic.png"}
-      {img: "img/ionic.png"}
+      {img: "img/ionic.png", title: "img 1"}
+      {img: "img/ionic.png", title: "img 2"}
+      {img: "img/ionic.png", title: "img 3"}
     ]
 
     all: ->
       cards
 
+  Modals = ["appModalService", (appModalService) ->
+    showCardItem = (card) ->
+      appModalService.show("templates/modal-tinder-card.html", "TinderModalCtrl as vm", card)
+
+    service = {
+      showCardItem: showCardItem
+    }
+  ]
+
   angular
   .module("starter")
   .factory("Chats", Chats)
   .factory("Cards", Cards)
+  .factory("Modals", Modals)
 )()
