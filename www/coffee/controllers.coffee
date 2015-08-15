@@ -90,13 +90,39 @@
 
     return
 
-  TinderModalCtrl = (parameters, Modals) ->
+  TinderModalCtrl = (parameters) ->
     vm = @
     vm.card = parameters
 
     vm.closeCardModal = (result) ->
       if result
         vm.closeModal(result)
+      return
+
+    return
+
+  SigninCtrl = ($state, Modals) ->
+    vm = @
+    vm.activeSlide = 0
+
+    vm.openTermModal = () ->
+      Modals.showTerm()
+      return
+
+    vm.openPrivacyModal = () ->
+      Modals.showPrivacy()
+      return
+
+    vm.signInWithTwitter = ()->
+      $state.go("tab.dash")
+      return
+
+    return
+
+  GeneralModalCtrl = () ->
+    vm = @
+    vm.closeThisModal = ->
+      vm.closeModal(null)
       return
 
     return
@@ -109,4 +135,6 @@
     .controller("ChatsCtrl", ChatsCtrl)
     .controller("ChatDetailCtrl", ChatDetailCtrl)
     .controller("AccountCtrl", AccountCtrl)
+    .controller("SigninCtrl", SigninCtrl)
+    .controller("GeneralModalCtrl", GeneralModalCtrl)
 )()

@@ -1,0 +1,30 @@
+<ion-view view-title="Sign in">
+  <ion-content ng-controller="SigninCtrl as signinctrl" scroll="false">
+    <ion-slide-box active-slide="signinctrl.activeSlide" class="tutorial-slide">
+      <ion-slide>
+        <div class="box">
+          <h1>Slide 1</h1>
+          <p>Anonymously "Like" or "Pass" on people Tinder Suggests.</p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <h1>Slide 2</h1>
+          <p>If someone you've liked happends to like you back...</p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <h1>Slide 3</h1>
+          <p>Chat with your matches inside the app.</p>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+    <div class="sticky-footer text-center">
+      By continuing, you agree to our
+      <a href="" ng-click="signinctrl.openTermModal()">Terms of Service</a> and
+      <a href="" ng-click="signinctrl.openPrivacyModal()">Privacy Policy</a>.
+      <button class="button btn-signin" ng-click="signinctrl.signInWithTwitter()">Log In with Twitter</button>
+    </div>
+  </ion-content>
+</ion-view>

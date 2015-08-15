@@ -88,9 +88,15 @@
   Modals = ["appModalService", (appModalService) ->
     showCardItem = (card) ->
       appModalService.show("templates/modal-tinder-card.html", "TinderModalCtrl as vm", card)
+    showTerm = () ->
+      appModalService.show("templates/modal-term-of-service.html", "GeneralModalCtrl as vm", null)
+    showPrivacy = () ->
+      appModalService.show("templates/modal-privacy-policy.html", "GeneralModalCtrl as vm", null)
 
     service = {
       showCardItem: showCardItem
+      showTerm: showTerm
+      showPrivacy: showPrivacy
     }
   ]
 
