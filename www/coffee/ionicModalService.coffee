@@ -87,6 +87,6 @@
 
 
   angular
-  .module("starter")
+  .module("ionic.ui.modalService", [])
   .factory("appModalService", ["$ionicModal", "$rootScope", "$q", "$injector", "$controller", appModalService])
 )()

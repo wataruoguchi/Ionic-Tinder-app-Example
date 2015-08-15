@@ -5,7 +5,7 @@ global angular, window, cordova, StatusBar
   "use strict"
   run = ($ionicPlatform) ->
     $ionicPlatform.ready ->
-      if window.cordova.plugins.Keyboard?
+      if window.cordova? and window.cordova.plugins? and window.cordova.plugins.Keyboard?
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar true
         cordova.plugins.Keyboard.disableScroll true
       if window.StatusBar
@@ -14,6 +14,6 @@ global angular, window, cordova, StatusBar
     return
 
   angular
-  .module("starter", ["ionic", "tabSlideBox", "ionic.contrib.ui.tinderCards"])
+  .module("starter", ["ionic", "tabSlideBox", "ionic.contrib.ui.tinderCards", "ionic.ui.modalService"])
   .run(run)
 )()
