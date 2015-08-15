@@ -3,7 +3,9 @@ global angular, window, cordova, StatusBar
 ###
 (->
   "use strict"
-  run = ($ionicPlatform) ->
+  run = ($ionicPlatform, ngFB) ->
+    ngFB.init {appId: "1456006074706877"}
+
     $ionicPlatform.ready ->
       if window.cordova? and window.cordova.plugins? and window.cordova.plugins.Keyboard?
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar true
@@ -14,6 +16,6 @@ global angular, window, cordova, StatusBar
     return
 
   angular
-  .module("starter", ["ionic", "tabSlideBox", "ionic.contrib.ui.tinderCards", "ionic.ui.modalService"])
+  .module("starter", ["ionic", "tabSlideBox", "ionic.contrib.ui.tinderCards", "ionic.ui.modalService", "ngOpenFB"])
   .run(run)
 )()

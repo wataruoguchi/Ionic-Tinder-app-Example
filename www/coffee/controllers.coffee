@@ -101,7 +101,7 @@
 
     return
 
-  SigninCtrl = ($state, Modals) ->
+  SigninCtrl = ($state, Modals, $timeout, ngFB) ->
     vm = @
     vm.activeSlide = 0
 
@@ -111,6 +111,17 @@
 
     vm.openPrivacyModal = () ->
       Modals.showPrivacy()
+      return
+
+    vm.signInWithFacebook = ()->
+      ngFB.login({scope: "email,user_friends,publish_actions"}).then((response) ->
+        if response.status is "connected"
+          console.log "FB login succeeded"
+          $state.go("tab.dash")
+        else
+          console.log "FB login failed"
+        return
+      )
       return
 
     vm.signInWithTwitter = ()->
