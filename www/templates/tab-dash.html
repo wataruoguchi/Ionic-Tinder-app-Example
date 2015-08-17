@@ -1,7 +1,7 @@
 <ion-view view-title="Dashboard" ng-controller="DashCtrl as dashctrl">
   <ion-content class="dash-panel" scroll="false">
     <div class="profile" ng-click="dashctrl.openProfileModal(dashctrl.user.id)">
-      <img ng-src="{{dashctrl.user.image}}" alt="" class="bg-image">
+      <div class="bg-image" style="background-image:url('{{dashctrl.user.image}}')"></div>
       <div class="avatar-image" style="background-image:url('{{dashctrl.user.image}}')"></div>
       <p class="avatar-name">{{dashctrl.user.name}}</p>
     </div>
