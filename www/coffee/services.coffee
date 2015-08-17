@@ -92,11 +92,20 @@
       appModalService.show("templates/modal-term-of-service.html", "GeneralModalCtrl as vm", null)
     showPrivacy = () ->
       appModalService.show("templates/modal-privacy-policy.html", "GeneralModalCtrl as vm", null)
+    showProfile = (userid) ->
+      appModalService.show("templates/modal-profile.html", "GeneralModalCtrl as vm", userid)
+    showPreferences = (userid) ->
+      appModalService.show("templates/modal-preferences.html", "GeneralModalCtrl as vm", userid)
+    showSettings = (userid) ->
+      appModalService.show("templates/modal-app-settings.html", "GeneralModalCtrl as vm", userid)
 
     service = {
       showCardItem: showCardItem
       showTerm: showTerm
       showPrivacy: showPrivacy
+      showProfile: showProfile
+      showPreferences: showPreferences
+      showSettings: showSettings
     }
   ]
 

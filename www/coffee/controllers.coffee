@@ -1,6 +1,27 @@
 (->
   "use strict"
-  DashCtrl = ->
+  DashCtrl = (Modals) ->
+    vm = @
+    vm.user = {
+      id: "1"
+      image: "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/v/t1.0-1/c49.0.160.160/p160x160/1004675_589970607712567_1863864964_n.jpg?oh=2537dfcc874b38c9544d020e756bf9a0&oe=567B11DA&__gda__=1447522723_d2ff5d2b72c48caaf6c9468b6120b9fa"
+      name: "Wataru"
+    }
+
+    vm.openProfileModal = (userid) ->
+      Modals.showProfile(userid)
+      return
+    vm.openPrefModal = (userid) ->
+      Modals.showPreferences(userid)
+      return
+    vm.openSettingsModal = (userid) ->
+      Modals.showSettings(userid)
+      return
+    vm.openHelp = () ->
+      return
+    vm.openShare = () ->
+      return
+
     return
 
   ChatsCtrl = (Chats) ->

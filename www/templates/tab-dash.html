@@ -1,27 +1,30 @@
-<ion-view view-title="Dashboard">
-  <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-          There is a fire in <b>sector 3</b>
-        </div>
-      </div>
+<ion-view view-title="Dashboard" ng-controller="DashCtrl as dashctrl">
+  <ion-content class="dash-panel" scroll="false">
+    <div class="profile" ng-click="dashctrl.openProfileModal(dashctrl.user.id)">
+      <img ng-src="{{dashctrl.user.image}}" alt="" class="bg-image">
+      <div class="avatar-image" style="background-image:url('{{dashctrl.user.image}}')"></div>
+      <p class="avatar-name">{{dashctrl.user.name}}</p>
     </div>
-    <div class="list card">
-      <div class="item item-divider">Health</div>
-      <div class="item item-body">
-        <div>
-          You ate an apple today!
-        </div>
+    <div class="list">
+      <div class="item item-icon-left text-left" ng-click="dashctrl.openPrefModal(dashctrl.user.id)">
+        <i class="icon ion-search"></i>
+        <h2>Discovery Preferences</h2>
+        <p>Change who you see or hide yourself</p>
       </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Upcoming</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
-        </div>
+      <div class="item item-icon-left text-left" ng-click="dashctrl.openSettingsModal(dashctrl.user.id)">
+        <i class="icon ion-wrench"></i>
+        <h2>App Settings</h2>
+        <p>Notifications, account and more</p>
+      </div>
+      <div class="item item-icon-left text-left" ng-click="dashctrl.openHelp()">
+        <i class="icon ion-help-circled"></i>
+        <h2>Need Help?</h2>
+        <p>FAQ, contact, and more</p>
+      </div>
+      <div class="item item-icon-left text-left" ng-click="dashctrl.openShare()">
+        <i class="icon ion-share"></i>
+        <h2>Share Tinder</h2>
+        <p>Sharing is caring</p>
       </div>
     </div>
   </ion-content>
