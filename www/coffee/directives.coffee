@@ -1,15 +1,6 @@
 (->
   "use strict"
 
-  noScroll = ->
-    restrict: "A"
-    link: ($scope, $element, $attr) ->
-      $element.on("touchmove", (e) ->
-        e.preventDefault()
-        return
-      )
-      return
-
   tabSlideBoxScrollExtension = ["$timeout", "$window", ($timeout, $window) ->
     restrict: "E"
     link: (scope, element, attrs) ->
@@ -28,6 +19,5 @@
 
   angular
     .module("starter")
-    .directive("tdCard", noScroll)
     .directive('tabSlideBox', tabSlideBoxScrollExtension)
 )()
