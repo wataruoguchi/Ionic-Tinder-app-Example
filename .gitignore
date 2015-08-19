@@ -5,7 +5,10 @@ node_modules/
 platforms/
 plugins/
 www/lib/
-www/js/application.js
-www/js/tabSlideBoxScrollExtension.js
+www/js/
 www/css/style.css
 www/css/style.min.css
+www/templates/tabs.html
+www/templates/tab-account.html
+www/templates/tab-chats.html
+www/templates/chat-detail.html
