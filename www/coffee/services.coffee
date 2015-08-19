@@ -62,6 +62,12 @@
         lastText: "You on your way?"
         face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
       }
+      {
+        id: 10
+        name: "Ben Sparrow10",
+        lastText: "You on your way?"
+        face: "https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png"
+      }
     ]
 
     all: ->

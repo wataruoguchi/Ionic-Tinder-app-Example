@@ -1,6 +1,13 @@
 <ion-view view-title="Tinder">
   <ion-content ng-controller="TinderCtrl as tinderctrl" scroll="false">
     <td-cards>
+      <div class="card-item no-cards" ng-if="tinderctrl.cards.length===0">
+        <div class="list card">
+          <div class="item item-body">
+            <p class="text-center">There is no one new around you.<br>Use Passport to choose a new location.</p>
+          </div>
+        </div>
+      </div>
       <div class="card-item" ng-repeat="card in tinderctrl.cards">
         <td-card
         on-destroy="tinderctrl.cardDestroyed($index)"

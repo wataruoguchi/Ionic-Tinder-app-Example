@@ -6,5 +6,6 @@ platforms/
 plugins/
 www/lib/
 www/js/application.js
+www/js/tabSlideBoxScrollExtension.js
 www/css/style.css
 www/css/style.min.css

@@ -24,25 +24,13 @@
 
     return
 
-  ChatsCtrl = (Chats) ->
+  LikedListCtrl = (Chats) ->
     # Use ViewModel instead of scope
     vm = @
     vm.chats = Chats.all()
     vm.remove = (chat) ->
       Chats.remove chat
       return
-    return
-
-  ChatDetailCtrl = ($stateParams, Chats) ->
-    vm = @
-    vm.chat = Chats.get $stateParams.chatId
-    return
-
-  AccountCtrl = ->
-    vm = @
-    vm.settings = {
-      enableFriends: true
-    }
     return
 
   TinderCtrl = (Cards, TDCardDelegate, $ionicSlideBoxDelegate, Modals) ->
@@ -153,9 +141,7 @@
     .controller("DashCtrl", DashCtrl)
     .controller("TinderCtrl", TinderCtrl)
     .controller("TinderModalCtrl", TinderModalCtrl)
-    .controller("ChatsCtrl", ChatsCtrl)
-    .controller("ChatDetailCtrl", ChatDetailCtrl)
-    .controller("AccountCtrl", AccountCtrl)
+    .controller("LikedListCtrl", LikedListCtrl)
     .controller("SigninCtrl", SigninCtrl)
     .controller("GeneralModalCtrl", GeneralModalCtrl)
 )()

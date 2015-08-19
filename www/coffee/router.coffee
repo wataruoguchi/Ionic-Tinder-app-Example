@@ -23,13 +23,9 @@
             templateUrl: "templates/tab-tinder.html"
             controller: "TinderCtrl"
           }
-          "tab-chats": {
-            templateUrl: "templates/tab-chats.html"
-            controller: "ChatsCtrl"
-          }
-          "tab-account": {
-            templateUrl: "templates/tab-account.html"
-            controller: "AccountCtrl"
+          "tab-liked-list": {
+            templateUrl: "templates/tab-liked-list.html"
+            controller: "LikedListCtrl"
           }
         }
       }
