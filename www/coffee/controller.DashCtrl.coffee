@@ -8,7 +8,7 @@
   # Click "Need Help?" doesn't do anything.
   # Click "Share Tinder" doesn't do anything.
   ###
-  DashCtrl = ($q, $state, localStorageService, Modals, FacebookAPI) ->
+  DashCtrl = ($q, $scope, $state, localStorageService, Modals, FacebookAPI) ->
     # Use ViewModel instead of $scope.
     vm = @
     vm.profileData = {
@@ -19,7 +19,6 @@
     # Invoked by ng-init. Loads profile photo and name from FB.
     vm.init = ->
       if localStorageService.hasOwnProperty("accessToken")
-        console.log "dash_ access token is [" + localStorageService.accessToken + "]"
         $q.all([FacebookAPI.getProfileName(), FacebookAPI.getProfilePicture()])
         .then((results) ->
           vm.profileData.name = results[0]
@@ -29,6 +28,14 @@
       else
         $state.go("signin")
       return
+
+    # When accessToken is set, invoke vm.init() again.
+    $scope.$watch(->
+      localStorageService.accessToken
+    ->
+      vm.init()
+      return
+    )
 
     # Opens profile modal.
     vm.openProfileModal = ->

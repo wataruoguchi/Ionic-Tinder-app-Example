@@ -6,7 +6,7 @@
   # This is just an example, doesn't do anything when user swipe YES or NONE.
   # So sorry, you can not find a partner with it :P
   ###
-  TinderCtrl = ($q, $state, $ionicSlideBoxDelegate, TDCardDelegate, localStorageService, Modals, FacebookAPI) ->
+  TinderCtrl = ($q, $scope, $state, $ionicSlideBoxDelegate, TDCardDelegate, localStorageService, Modals, FacebookAPI) ->
     # Use ViewModel instead of $scope.
     vm = @
     vm.albums = []  # Is album IDs from FB.
@@ -16,11 +16,18 @@
     # Invoked by ng-init.
     vm.init = ->
       if localStorageService.hasOwnProperty("accessToken")
-        console.log "tinder_ access token is [" + localStorageService.accessToken + "]"
         getFBalbums()
       else
         $state.go("signin")
       return
+
+    # When accessToken is set, invoke vm.init() again.
+    $scope.$watch(->
+      localStorageService.accessToken
+    ->
+      vm.init()
+      return
+    )
 
     # Disable swiping tabs when user tabs a card.
     disableSwipe = ->

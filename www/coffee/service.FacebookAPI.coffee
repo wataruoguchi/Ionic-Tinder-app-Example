@@ -26,7 +26,7 @@
         return
       (error) ->
         console.log "error at getPhotosByAlbum"
-        deferred.reject()
+        deferred.reject("error at getPhotosByAlbum")
         return
       )
       deferred.promise
@@ -47,7 +47,7 @@
         return
       (error) ->
         console.log "error at getAlbums"
-        deferred.reject()
+        deferred.reject("error at getAlbums")
         return
       )
       deferred.promise
@@ -68,7 +68,7 @@
         return
       (error) ->
         console.log "error at getProfileName"
-        deferred.reject()
+        deferred.reject("error at getProfileName")
         return
       )
       deferred.promise
@@ -89,7 +89,7 @@
         return
       (error) ->
         console.log "error at getProfilePicture"
-        deferred.reject()
+        deferred.reject("error at getProfilePicture")
         return
       )
       deferred.promise
@@ -109,7 +109,7 @@
         return
       (error) ->
         console.log "error at getFeed"
-        deferred.reject()
+        deferred.reject("error at getFeed")
         return
       )
       deferred.promise
