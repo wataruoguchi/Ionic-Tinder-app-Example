@@ -29,6 +29,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background-repeat: no-repeat;
     background-size: cover;
@@ -76,4 +78,9 @@ input.range {
   div:nth-of-type(2) {
     right: 0;
   }
+}
+
+//Modal - card
+.modal-card-image {
+  width: 100%;
 }

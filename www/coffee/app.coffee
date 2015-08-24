@@ -1,5 +1,7 @@
+# Loading modules. Those modules are all smart!
+
 ###
-global angular, window, cordova, StatusBar
+# global angular, window, cordova, StatusBar
 ###
 (->
   "use strict"
@@ -14,6 +16,6 @@ global angular, window, cordova, StatusBar
     return
 
   angular
-  .module("starter", ["ionic", "tabSlideBox", "ionic.contrib.ui.tinderCards", "ionic.ui.modalService"])
+  .module("starter", ["ionic", "tabSlideBox", "ionic.contrib.ui.tinderCards", "ionic.ui.modalService", "ngCordova", "LocalStorageModule"])
   .run(run)
 )()

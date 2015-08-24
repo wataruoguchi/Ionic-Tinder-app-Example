@@ -3,8 +3,8 @@
     <button class="button btn-done" ng-click="vm.closeCardModal(vm.card)">Done</button>
     <button class="button btn-span"><i class="icon ion-more"></i></button>
   </ion-header-bar>
-  <ion-content class="content list modal-list">
-    <div class="item"><img ng-src="{{vm.card.img}}" alt=""></div>
-    <div class="item item-text-wrap text-left">modal: {{vm.card.title}}</div>
+  <ion-content class="content list modal-list" scroll="false">
+    <div class="item"><img class="modal-card-image" ng-src="{{vm.card.url}}" alt=""></div>
+    <div class="item item-text-wrap text-left">{{vm.card.id}}</div>
   </ion-content>
 </div>

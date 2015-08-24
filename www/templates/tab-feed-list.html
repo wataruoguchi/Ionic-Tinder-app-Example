@@ -1,0 +1,10 @@
+<ion-view view-title="Feed-List">
+  <ion-content>
+    <ion-list ng-controller="FeedListCtrl as feedlistctrl" ng-init="feedlistctrl.init()">
+      <ion-item class="item-avatar" ng-repeat="data in feedlistctrl.feedData" type="item-text-wrap">
+        <img ng-src="{{feedlistctrl.feedData.myPicture}}" alt="">
+        <p class="text-left">{{data.message}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
