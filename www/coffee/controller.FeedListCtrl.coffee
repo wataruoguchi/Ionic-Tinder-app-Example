@@ -10,6 +10,7 @@
     # Invoked by ng-init. Loads profile photo and feed from FB.
     vm.init = ->
       if localStorageService.hasOwnProperty("accessToken")
+        console.log "feed_ access token is [" + localStorageService.accessToken + "]"
         $q.all([FacebookAPI.getFeed(), FacebookAPI.getProfilePicture()])
         .then((results) ->
           vm.feedData = results[0]

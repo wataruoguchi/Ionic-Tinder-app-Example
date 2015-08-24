@@ -16,6 +16,7 @@
     # Invoked by ng-init.
     vm.init = ->
       if localStorageService.hasOwnProperty("accessToken")
+        console.log "tinder_ access token is [" + localStorageService.accessToken + "]"
         getFBalbums()
       else
         $state.go("signin")

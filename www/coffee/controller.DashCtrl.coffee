@@ -19,6 +19,7 @@
     # Invoked by ng-init. Loads profile photo and name from FB.
     vm.init = ->
       if localStorageService.hasOwnProperty("accessToken")
+        console.log "dash_ access token is [" + localStorageService.accessToken + "]"
         $q.all([FacebookAPI.getProfileName(), FacebookAPI.getProfilePicture()])
         .then((results) ->
           vm.profileData.name = results[0]
