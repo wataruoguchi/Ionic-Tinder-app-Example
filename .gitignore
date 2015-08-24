@@ -9,6 +9,5 @@ plugins/
 www/lib/
 www/js/
 www/img/
-www/css/style.css
-www/css/style.min.css
+www/css/
 www/coffee/service.private.coffee
