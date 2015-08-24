@@ -3,5 +3,9 @@
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.0.1"
+  },
+  "dependencies": {
+    "ngStorage": "~0.3.0",
+    "angular-local-storage": "~0.2.2"
   }
 }

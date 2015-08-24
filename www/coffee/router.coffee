@@ -23,33 +23,29 @@
             templateUrl: "templates/tab-tinder.html"
             controller: "TinderCtrl"
           }
-          "tab-chats": {
-            templateUrl: "templates/tab-chats.html"
-            controller: "ChatsCtrl"
-          }
-          "tab-account": {
-            templateUrl: "templates/tab-account.html"
-            controller: "AccountCtrl"
+          "tab-feed-list": {
+            templateUrl: "templates/tab-feed-list.html"
+            controller: "FeedListCtrl"
           }
         }
       }
-      .state "settings", {
-        url: "/nav"
-        abstract: true
-        templateUrl: "templates/navigation.html"
-      }
-      .state "settings.settings", {
-        url: "/settings"
-        templateUrl: "templates/settings.html"
-      }
-      .state "settings.term", {
-        url: "/term"
-        templateUrl: "templates/term-of-service.html"
-      }
-      .state "settings.privacy", {
-        url: "/privacy"
-        templateUrl: "templates/privacy-policy.html"
-      }
+      # .state "settings", {
+      #   url: "/nav"
+      #   abstract: true
+      #   templateUrl: "templates/navigation.html"
+      # }
+      # .state "settings.settings", {
+      #   url: "/settings"
+      #   templateUrl: "templates/settings.html"
+      # }
+      # .state "settings.term", {
+      #   url: "/term"
+      #   templateUrl: "templates/term-of-service.html"
+      # }
+      # .state "settings.privacy", {
+      #   url: "/privacy"
+      #   templateUrl: "templates/privacy-policy.html"
+      # }
 
     $urlRouterProvider.otherwise "/tab/dash"
     return

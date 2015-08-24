@@ -1,0 +1,30 @@
+<div class="modal">
+  <ion-header-bar class="bar bar-header bar-light">
+    <div class="title">Discover Settings</div>
+    <button class="button btn-done" ng-click="vm.closeThisModal()">Done</button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-toggle>
+          Discovery
+      </ion-toggle>
+      <p>Turn off to not be shown to anyone in Discover. You can still see and chat with your friends and matches.</p>
+    </ion-list>
+    <div class="list">
+      <div class="item">
+        <div class="range-header">
+          <div class="text-left">Distance</div>
+          <div class="text-right">2km</div>
+        </div>
+        <input type="range" class="range" name="distance" min="0" max="100" value="33">
+      </div>
+      <div class="item">
+        <div class="range-header">
+          <div class="text-left">Age</div>
+          <div class="text-right">26-32</div>
+        </div>
+        <input type="range" class="range" name="volume" min="0" max="100" value="33">
+      </div>
+    </div>
+  </ion-content>
+</div>
