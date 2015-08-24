@@ -6,7 +6,7 @@
   # This is just an example, doesn't do anything when user swipe YES or NONE.
   # So sorry, you can not find a partner with it :P
   ###
-  TinderCtrl = ($q, TDCardDelegate, $ionicSlideBoxDelegate, localStorageService, Modals, FacebookAPI) ->
+  TinderCtrl = ($q, $state, $ionicSlideBoxDelegate, TDCardDelegate, localStorageService, Modals, FacebookAPI) ->
     # Use ViewModel instead of $scope.
     vm = @
     vm.albums = []  # Is album IDs from FB.
@@ -31,11 +31,11 @@
       $ionicSlideBoxDelegate.enableSlide(true)
       return
 
-    cardIsLiked = (index) ->
+    cardIsLiked = () ->
       console.log "LIKE!"
       return
 
-    cardIsDisliked = (index) ->
+    cardIsDisliked = () ->
       console.log "NOPE!"
       return
 
@@ -52,28 +52,30 @@
     # Invoked by on-destroy. Remove a card and make a card from a photo.
     vm.cardDestroyed = (index) ->
       vm.cards.splice index, 1
-      setCardsFromPhotos(index)
+      setCardsFromPhotos()
       return
 
     # Invoked by on-swipe-left.
     vm.cardSwipedLeft = (index) ->
-      cardIsDisliked(index)
+      console.log "index: " + index
+      cardIsDisliked()
       return
 
     # Invoked by on-swipe-right.
     vm.cardSwipedRight = (index) ->
-      cardIsLiked(index)
+      console.log "index: " + index
+      cardIsLiked()
       return
 
     # Invoked by a button.
     vm.cardTapNo = (index) ->
-      cardIsDisliked(index)
+      cardIsDisliked()
       vm.cardDestroyed(index)
       return
 
     # Invoked by a button.
     vm.cardTapYes = (index) ->
-      cardIsLiked(index)
+      cardIsLiked()
       vm.cardDestroyed(index)
       return
 
@@ -91,7 +93,7 @@
     # This function does...
     # ["rabbit", "lion", "elephant"]
     # "rabbit" comes from vm.photos[0]
-    setCardsFromPhotos = (index) ->
+    setCardsFromPhotos = ->
       vm.cards.unshift(vm.photos[0])
       vm.photos.splice 0, 1
       getFBphotos()
@@ -121,7 +123,7 @@
 
     # Load initial cards. The number of card is 5.
     setInitialCards = ->
-      for idx in [0..4]
+      for [0..4]
         if vm.photos[0]?
           vm.cards.push vm.photos[0]
           vm.photos.splice 0, 1

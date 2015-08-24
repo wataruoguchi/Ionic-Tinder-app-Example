@@ -27,7 +27,7 @@
         $cordovaOauth.facebook(PrivateData.facebookAppID, ["email", "user_posts", "user_photos", "user_friends", "read_custom_friendlists", "user_website", "user_location", "user_relationships"])
         .then((result) ->
           localStorageService.accessToken = result.access_token
-          console.log "access token is [" + result.access_token + "]"
+          console.log "access token is [" + localStorageService.accessToken + "]"
           $state.go("tab.dash")
           return
         (error) ->
@@ -37,6 +37,7 @@
       else
         # For debugging without cordova
         localStorageService.accessToken = PrivateData.fakeAccessToken
+        console.log "Debugging without cordova. appID:" + PrivateData.facebookAppID + "  token:" + PrivateData.fakeAccessToken
         $state.go("tab.dash")
       return
 

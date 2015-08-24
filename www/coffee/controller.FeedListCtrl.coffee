@@ -14,6 +14,7 @@
         .then((results) ->
           vm.feedData = results[0]
           vm.feedData.myPicture = results[1]
+          return
         )
       else
         $state.go("signin")

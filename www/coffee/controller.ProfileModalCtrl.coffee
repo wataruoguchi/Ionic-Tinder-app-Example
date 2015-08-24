@@ -4,7 +4,7 @@
   # ProfileModalCtrl is a controller of Profile Modal.
   # It only has close modal button and sign out(log out) button.
   ###
-  ProfileModalCtrl = ($state, parameters) ->
+  ProfileModalCtrl = ($state) ->
     # Use ViewModel instead of $scope.
     vm = @
 

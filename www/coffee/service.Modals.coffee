@@ -27,6 +27,8 @@
       showPreferences: showPreferences
       showSettings: showSettings
     }
+
+    service
   ]
 
   angular

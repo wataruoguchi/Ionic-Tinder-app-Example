@@ -1,8 +1,5 @@
 # Loading modules. Those modules are all smart!
 
-###
-# global angular, window, cordova, StatusBar
-###
 (->
   "use strict"
   run = ($ionicPlatform) ->

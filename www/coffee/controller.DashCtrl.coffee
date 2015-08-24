@@ -23,6 +23,7 @@
         .then((results) ->
           vm.profileData.name = results[0]
           vm.profileData.pictureUrl = results[1]
+          return
         )
       else
         $state.go("signin")

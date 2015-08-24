@@ -1,5 +1,17 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "browser": true
+  },
+  "globals": {
+    "window": true,
+    "cordova": true,
+    "StatusBar": true,
+    "angular": true
+  },
+  "rules": {
+    "no-unused-vars": 0,
+    "camelcase": [2, {"properties": "never"}],
+    "no-underscore-dangle": 0
   }
 }

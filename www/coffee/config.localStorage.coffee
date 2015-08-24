@@ -7,9 +7,8 @@
   localStorage = (localStorageServiceProvider) ->
     localStorageServiceProvider.setPrefix("myApp")
     localStorageServiceProvider.setStorageType("sessionStorage")
-    return
 
-  return
+    return
 
   angular
   .module("starter")
