@@ -24,3 +24,8 @@ An example Tinder-like hybrid app by AngularJS + Facebook graph API
 * Bower
 * npm
 * Sass
+
+### Footprint
+* [ionic framework - after getting started](https://gist.github.com/wataruoguchi/ec9598ca17423fa5ded7)
+* Built [ionic-ui-modal-service](https://github.com/wataruoguchi/ionic-ui-modal-service)
+* Built [Ionic-Tabbed-Slidebox-Scroll-Extension](https://github.com/wataruoguchi/Ionic-Tabbed-Slidebox-Scroll-Extension)
