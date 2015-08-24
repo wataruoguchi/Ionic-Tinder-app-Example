@@ -4,6 +4,7 @@
 hooks/
 resources/
 node_modules/
+test/
 platforms/
 plugins/
 www/lib/
