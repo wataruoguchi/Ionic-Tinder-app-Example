@@ -11,7 +11,7 @@
     vm = @
     vm.albums = []  # Is album IDs from FB.
     vm.photos = []  # Is photo IDs from FB. It doesn't show up on the View.
-    vm.cards = [] #Has maximum 5 photos from FB.
+    vm.cards = [] #Has maximum 5 photos from vm.photos.
 
     # Invoked by ng-init.
     vm.init = ->
@@ -121,7 +121,6 @@
 
     # Get photos only when the number of photo stack is less than 4.
     # And if there is an album ID in vm.albums.
-    # Why 4? Because it's less than 5 which is the number of cards.
     getFBphotos = ->
       if vm.photos.length < 4
         if vm.albums.length > 0
@@ -129,7 +128,7 @@
           vm.albums.splice 0, 1
       return
 
-    # Load initial cards. The number of card is 5.
+    # Load initial cards. The maximum number of cards is 5.
     setInitialCards = ->
       for [0..4]
         if vm.photos[0]?

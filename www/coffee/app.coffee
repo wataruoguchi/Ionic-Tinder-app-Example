@@ -2,8 +2,7 @@
 
 (->
   "use strict"
-  run = ($ionicPlatform, ngFB) ->
-    ngFB.init {appId: "1456006074706877"}
+  run = ($ionicPlatform) ->
 
     $ionicPlatform.ready ->
       if window.cordova? and window.cordova.plugins? and window.cordova.plugins.Keyboard?

@@ -11,4 +11,4 @@ www/lib/
 www/js/
 www/img/
 www/css/
-www/coffee/service.private.coffee
+www/coffee/service.PrivateData.coffee
